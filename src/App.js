@@ -1,12 +1,29 @@
+import React, { Fragment, useEffect } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import store from './store';
 
+import store from './store';
 import './App.css';
+import Alert from './components/layouts/Alert';
+import Navbar from './components/layouts/Navbar';
+import NotFound from './components/layouts/NotFound';
+import Products from './components/products/Products';
 
 const App = () => {
   return (
     <Provider store={store}>
-      <div className='App'>Hello</div>
+      <Router>
+        <Fragment>
+          <Navbar />
+          <section className='container'>
+            <Alert />
+            <Routes>
+              <Route exact path='/' element={<Products />} />
+              <Route path='*' element={<NotFound />} />
+            </Routes>
+          </section>
+        </Fragment>
+      </Router>
     </Provider>
   );
 };
