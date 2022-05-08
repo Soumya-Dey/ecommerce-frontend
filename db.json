@@ -1,42 +1,10 @@
-[
-    {
-        "id": 1,
-        "title": "Milk - 1%",
-        "description": "Donec ut mauris eget massa tempor convallis.",
-        "price": 5183.13,
-        "rating": 4.2,
-        "image": "http://dummyimage.com/200x243.png/dddddd/000000"
-    },
-    {
-        "id": 2,
-        "title": "Pepper - Paprika, Hungarian",
-        "description": "Donec ut dolor.",
-        "price": 5898.46,
-        "rating": 2.9,
-        "image": "http://dummyimage.com/127x112.png/ff4444/ffffff"
-    },
-    {
-        "id": 3,
-        "title": "Cheese - Mozzarella, Shredded",
-        "description": "Integer non velit.",
-        "price": 6689.52,
-        "rating": 2.7,
-        "image": "http://dummyimage.com/244x142.png/5fa2dd/ffffff"
-    },
-    {
-        "id": 4,
-        "title": "Pimento - Canned",
-        "description": "Duis ac nibh.",
-        "price": 8674.24,
-        "rating": 2.6,
-        "image": "http://dummyimage.com/150x164.png/ff4444/ffffff"
-    },
-    {
-        "id": 5,
-        "title": "Pepperoni Slices",
-        "description": "Suspendisse potenti.",
-        "price": 7548.51,
-        "rating": 2.6,
-        "image": "http://dummyimage.com/246x207.png/dddddd/000000"
-    }
-]
+[{"id":1,"title":"Soup - Cream Of Broccoli, Dry","description":"Morbi non lectus.","price":688.46,"rating":2.3},
+{"id":2,"title":"Icecream - Dibs","description":"Nulla ut erat id mauris vulputate elementum.","price":6366.36,"rating":2.9},
+{"id":3,"title":"Rice - Sushi","description":"In hac habitasse platea dictumst.","price":8955.86,"rating":2.4},
+{"id":4,"title":"Barramundi","description":"Duis aliquam convallis nunc.","price":6610.83,"rating":2.1},
+{"id":5,"title":"Sprouts - Alfalfa","description":"Suspendisse potenti.","price":5078.73,"rating":4.8},
+{"id":6,"title":"Sauce - Soya, Dark","description":"Pellentesque viverra pede ac diam.","price":6598.42,"rating":4.4},
+{"id":7,"title":"Olives - Morracan Dired","description":"Vivamus vel nulla eget eros elementum pellentesque.","price":7780.75,"rating":2.5},
+{"id":8,"title":"Yogurt - Raspberry, 175 Gr","description":"Ut tellus.","price":9146.71,"rating":2.2},
+{"id":9,"title":"Wine - Charddonnay Errazuriz","description":"Suspendisse potenti.","price":1453.28,"rating":2.5},
+{"id":10,"title":"Chef Hat 20cm","description":"Aenean auctor gravida sem.","price":7691.82,"rating":2.3}]
