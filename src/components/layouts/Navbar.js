@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-const Navbar = (props) => {
-  // links to show when user is not logged in
+const Navbar = ({ cart: { products: cartItems, loading } }) => {
   const links = (
     <ul>
       <li>
@@ -14,7 +13,7 @@ const Navbar = (props) => {
         <Link to='/add-product'>Add a product</Link>
       </li>
       <li>
-        <Link to='/cart'>Cart</Link>
+        <Link to='/cart'>Cart [{!loading ? cartItems.length : 0}]</Link>
       </li>
     </ul>
   );
@@ -27,10 +26,12 @@ const Navbar = (props) => {
   );
 };
 
-Navbar.propTypes = {};
+Navbar.propTypes = {
+  cart: PropTypes.object.isRequired,
+};
 
-// const mapStateToProps = (state) => ({
-//     cart: state.cart,
-// });
+const mapStateToProps = (state) => ({
+  cart: state.cart,
+});
 
-export default connect(null, {})(Navbar);
+export default connect(mapStateToProps, {})(Navbar);

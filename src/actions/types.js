@@ -13,5 +13,6 @@ export const DELETE_PRODUCT = 'DELETE_PRODUCT';
 export const UPDATE_PRODUCT = 'UPDATE_PRODUCT';
 
 // cart types
-export const GET_CART_ITEMS = 'GET_CART_ITEMS';
-export const DELETE_CART_ITEMS = 'DELETE_CART_ITEMS';
+export const ADD_TO_CART = 'ADD_TO_CART';
+export const DELETE_FROM_CART = 'DELETE_FROM_CART';
+export const CART_ERROR = 'CART_ERROR';

@@ -4,10 +4,14 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { deleteProduct } from '../../actions/product';
+import { addToCart, deleteFromCart } from '../../actions/cart';
 
 const ProductItem = ({
   product: { id, title, description, price, rating, image },
+  cart: { products: cartItems, loading },
   deleteProduct,
+  addToCart,
+  deleteFromCart,
   margin,
 }) => {
   return (
@@ -16,7 +20,7 @@ const ProductItem = ({
       <p className='post-text'>{description}</p>
       <p className='post-text'>{price}</p>
       <p className='post-text'>{rating}</p>
-      <Link to={`/posts/${id}`} className='btn btn-dark mr'>
+      <Link to={`/products/${id}`} className='btn btn-dark mr'>
         Edit Product
       </Link>
       <button
@@ -26,23 +30,48 @@ const ProductItem = ({
       >
         Delete Product
       </button>
-      <button
-        type='button'
-        className='btn btn-primary'
-        // onClick={(e) => deleteProduct(id)}
-      >
-        Add to Cart
-      </button>
+      {!loading ? (
+        cartItems.filter((product) => product.id === id).length ? (
+          <button
+            type='button'
+            className='btn btn-dark'
+            onClick={(e) => deleteFromCart(id)}
+          >
+            Delete from Cart
+          </button>
+        ) : (
+          <button
+            type='button'
+            className='btn btn-primary'
+            onClick={(e) =>
+              addToCart({ id, title, description, price, rating, image })
+            }
+          >
+            Add to Cart
+          </button>
+        )
+      ) : (
+        ''
+      )}
     </div>
   );
 };
 
 ProductItem.propTypes = {
   product: PropTypes.object.isRequired,
+  cart: PropTypes.object.isRequired,
   deleteProduct: PropTypes.func.isRequired,
+  addToCart: PropTypes.func.isRequired,
+  deleteFromCart: PropTypes.func.isRequired,
   margin: PropTypes.number,
 };
 
-export default connect(null, {
+const mapStateToProps = (state) => ({
+  cart: state.cart,
+});
+
+export default connect(mapStateToProps, {
   deleteProduct,
+  addToCart,
+  deleteFromCart,
 })(ProductItem);

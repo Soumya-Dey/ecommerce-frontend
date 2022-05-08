@@ -8,6 +8,7 @@ import Alert from './components/layouts/Alert';
 import Navbar from './components/layouts/Navbar';
 import NotFound from './components/layouts/NotFound';
 import Products from './components/products/Products';
+import Product from './components/product/Product';
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
             <Alert />
             <Routes>
               <Route exact path='/' element={<Products />} />
+              <Route exact path='/products/:productId' element={<Product />} />
               <Route path='*' element={<NotFound />} />
             </Routes>
           </section>
