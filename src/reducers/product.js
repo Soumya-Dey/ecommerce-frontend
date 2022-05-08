@@ -31,7 +31,7 @@ export default function (state = initialState, action) {
     case ADD_PRODUCT:
       return {
         ...state,
-        products: [...state.products, action.payload],
+        products: [action.payload, ...state.products],
         loading: false,
       };
     case UPDATE_PRODUCT:
@@ -40,10 +40,10 @@ export default function (state = initialState, action) {
         ...state,
         product: action.payload,
         products: [
+          action.payload,
           ...state.products.filter(
             (product) => product.id !== action.payload.id
           ),
-          action.payload,
         ],
         loading: false,
       };
