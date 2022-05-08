@@ -1,10 +1,37 @@
-[{"id":1,"title":"Soup - Cream Of Broccoli, Dry","description":"Morbi non lectus.","price":688.46,"rating":2.3},
-{"id":2,"title":"Icecream - Dibs","description":"Nulla ut erat id mauris vulputate elementum.","price":6366.36,"rating":2.9},
-{"id":3,"title":"Rice - Sushi","description":"In hac habitasse platea dictumst.","price":8955.86,"rating":2.4},
-{"id":4,"title":"Barramundi","description":"Duis aliquam convallis nunc.","price":6610.83,"rating":2.1},
-{"id":5,"title":"Sprouts - Alfalfa","description":"Suspendisse potenti.","price":5078.73,"rating":4.8},
-{"id":6,"title":"Sauce - Soya, Dark","description":"Pellentesque viverra pede ac diam.","price":6598.42,"rating":4.4},
-{"id":7,"title":"Olives - Morracan Dired","description":"Vivamus vel nulla eget eros elementum pellentesque.","price":7780.75,"rating":2.5},
-{"id":8,"title":"Yogurt - Raspberry, 175 Gr","description":"Ut tellus.","price":9146.71,"rating":2.2},
-{"id":9,"title":"Wine - Charddonnay Errazuriz","description":"Suspendisse potenti.","price":1453.28,"rating":2.5},
-{"id":10,"title":"Chef Hat 20cm","description":"Aenean auctor gravida sem.","price":7691.82,"rating":2.3}]
+[
+    {
+        "id": 1,
+        "title": "Soup - Cream Of Broccoli, Dry",
+        "description": "Morbi non lectus.",
+        "price": 688.46,
+        "rating": 2.3
+    },
+    {
+        "id": 2,
+        "title": "Icecream - Dibs",
+        "description": "Nulla ut erat id mauris vulputate elementum.",
+        "price": 6366.36,
+        "rating": 2.9
+    },
+    {
+        "id": 3,
+        "title": "Rice - Sushi",
+        "description": "In hac habitasse platea dictumst.",
+        "price": 8955.86,
+        "rating": 2.4
+    },
+    {
+        "id": 4,
+        "title": "Barramundi",
+        "description": "Duis aliquam convallis nunc.",
+        "price": 6610.83,
+        "rating": 2.1
+    },
+    {
+        "id": 5,
+        "title": "Sprouts - Alfalfa",
+        "description": "Suspendisse potenti.",
+        "price": 5078.73,
+        "rating": 4.8
+    }
+]
