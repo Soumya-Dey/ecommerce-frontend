@@ -19,7 +19,9 @@ export default function (state = initialState, action) {
     case GET_PRODUCTS:
       return {
         ...state,
-        products: action.payload,
+        products: action.payload.sort(
+          (first, second) => +second.id - +first.id
+        ),
         loading: false,
       };
     case GET_PRODUCT:
@@ -31,6 +33,7 @@ export default function (state = initialState, action) {
     case ADD_PRODUCT:
       return {
         ...state,
+        product: action.payload,
         products: [action.payload, ...state.products],
         loading: false,
       };

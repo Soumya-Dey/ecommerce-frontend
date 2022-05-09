@@ -2,6 +2,12 @@ import React, { useEffect, useState, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import {
+  MdEdit,
+  MdDeleteForever,
+  MdAddShoppingCart,
+  MdDeleteSweep,
+} from 'react-icons/md';
 
 import { deleteProduct } from '../../actions/product';
 import { addToCart, deleteFromCart } from '../../actions/cart';
@@ -21,14 +27,17 @@ const ProductItem = ({
       <p className='post-text'>{price}</p>
       <p className='post-text'>{rating}</p>
       <Link to={`/products/${id}`} className='btn btn-dark mr'>
-        Edit Product
+        <MdEdit /> Edit Product
       </Link>
       <button
         type='button'
         className='btn btn-danger'
-        onClick={(e) => deleteProduct(id)}
+        onClick={(e) => {
+          deleteProduct(id);
+          deleteFromCart(id);
+        }}
       >
-        Delete Product
+        <MdDeleteForever /> Delete Product
       </button>
       {!loading ? (
         cartItems.filter((product) => product.id === id).length ? (
@@ -37,7 +46,7 @@ const ProductItem = ({
             className='btn btn-dark'
             onClick={(e) => deleteFromCart(id)}
           >
-            Delete from Cart
+            <MdDeleteSweep /> Delete from Cart
           </button>
         ) : (
           <button
@@ -47,7 +56,7 @@ const ProductItem = ({
               addToCart({ id, title, description, price, rating, image })
             }
           >
-            Add to Cart
+            <MdAddShoppingCart /> Add to Cart
           </button>
         )
       ) : (

@@ -2,6 +2,7 @@ import React, { Fragment, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
+import { MdKeyboardArrowLeft } from 'react-icons/md';
 
 import Spinner from '../layouts/Spinner';
 import ProductItem from '../products/ProductItem';
@@ -18,7 +19,7 @@ const Product = ({ getProduct, product: { product, loading } }) => {
   ) : (
     <Fragment>
       <Link to='/' className='btn btn-light'>
-        Back To Products
+        <MdKeyboardArrowLeft /> Back
       </Link>
       <ProductItem product={product} margin={1} />
     </Fragment>

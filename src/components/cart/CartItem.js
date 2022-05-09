@@ -1,7 +1,8 @@
 import React, { useEffect, useState, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+
+import { MdDeleteSweep } from 'react-icons/md';
 
 import { deleteFromCart } from '../../actions/cart';
 
@@ -21,7 +22,7 @@ const CartItem = ({
         className='btn btn-danger'
         onClick={(e) => deleteFromCart(id)}
       >
-        Delete from Cart
+        <MdDeleteSweep /> Delete from Cart
       </button>
     </div>
   );

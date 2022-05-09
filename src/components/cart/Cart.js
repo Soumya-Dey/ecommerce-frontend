@@ -1,6 +1,8 @@
 import React, { Fragment, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { MdKeyboardArrowLeft } from 'react-icons/md';
 
 import Spinner from '../layouts/Spinner';
 import CartItem from './CartItem';
@@ -10,6 +12,9 @@ const Cart = ({ cart: { products, loading } }) => {
     <Spinner />
   ) : (
     <Fragment>
+      <Link to='/' className='btn btn-light'>
+        <MdKeyboardArrowLeft /> Back
+      </Link>
       <h1 className='large text-primary'>Your Cart</h1>
       <div className='posts'>
         {products.map((product) => (

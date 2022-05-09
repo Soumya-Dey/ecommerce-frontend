@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { MdHomeFilled } from 'react-icons/md';
 
 const NotFound = () => {
   return (
@@ -12,7 +13,7 @@ const NotFound = () => {
         Heading home would be best for you.
       </p>
       <Link to='/' className='btn btn-primary'>
-        Go Back Home
+        <MdHomeFilled /> Go Back Home
       </Link>
     </div>
   );
