@@ -16,7 +16,7 @@ const Cart = ({ cart: { products, loading } }) => {
         <MdKeyboardArrowLeft /> Back
       </Link>
       <h1 className='large text-primary'>Your Cart</h1>
-      <div className='posts'>
+      <div className='products'>
         {products.map((product) => (
           <CartItem key={product.id} product={product} margin={2} />
         ))}

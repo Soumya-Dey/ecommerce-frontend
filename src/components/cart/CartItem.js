@@ -12,11 +12,11 @@ const CartItem = ({
   margin,
 }) => {
   return (
-    <div className={`post bg-white p-custom-2 my-${margin}`}>
-      <p className='post-text'>{title}</p>
-      <p className='post-text'>{description}</p>
-      <p className='post-text'>{price}</p>
-      <p className='post-text'>{rating}</p>
+    <div className={`product bg-white p-custom-2 my-${margin}`}>
+      <p className='product-text'>{title}</p>
+      <p className='product-text'>{description}</p>
+      <p className='product-text'>{price}</p>
+      <p className='product-text'>{rating}</p>
       <button
         type='button'
         className='btn btn-danger'

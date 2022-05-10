@@ -3,6 +3,7 @@ import axios from 'axios';
 import { API_URL } from '../env';
 import { setAlert } from './alert';
 import {
+  START_LOADING,
   GET_PRODUCTS,
   GET_PRODUCT,
   ADD_PRODUCT,
@@ -12,32 +13,43 @@ import {
 } from './types';
 
 // for getting all products
-export const getAllProducts = () => async (dispatch) => {
-  try {
-    // get all products
-    const res = await axios.get(`${API_URL}/products`);
-
-    setTimeout(() => {
+export const getAllProducts =
+  (sortBy = 'id', sortOrder = 'desc') =>
+  async (dispatch) => {
+    try {
       dispatch({
-        type: GET_PRODUCTS,
-        payload: res.data,
+        type: START_LOADING,
       });
-    }, 500);
-  } catch (error) {
-    // send the error data to reducer
-    dispatch({
-      type: PRODUCTS_ERROR,
-      payload: {
-        msg: error.response.statusText,
-        status: error.response.status,
-      },
-    });
-  }
-};
+      // get all products
+      const res = await axios.get(`${API_URL}/products`);
+
+      setTimeout(() => {
+        dispatch({
+          type: GET_PRODUCTS,
+          payload: res.data,
+          sortBy,
+          sortOrder,
+        });
+      }, 500);
+    } catch (error) {
+      // send the error data to reducer
+      dispatch({
+        type: PRODUCTS_ERROR,
+        payload: {
+          msg: error.response.statusText,
+          status: error.response.status,
+        },
+      });
+    }
+  };
 
 // for getting a product by product id
 export const getProduct = (productId) => async (dispatch) => {
   try {
+    dispatch({
+      type: START_LOADING,
+    });
+
     // get the product by id
     const res = await axios.get(`${API_URL}/products/${productId}`);
 

@@ -43,7 +43,7 @@ const AddProduct = ({ addProduct }) => {
       <Link to='/' className='btn btn-light'>
         <MdKeyboardArrowLeft /> Back
       </Link>
-      <div className='post-form'>
+      <div className='product-form'>
         <div className='bg-primary p-custom-3 say-div'>
           <h3>Add a Product</h3>
         </div>

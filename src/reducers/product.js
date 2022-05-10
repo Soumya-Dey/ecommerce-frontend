@@ -1,4 +1,5 @@
 import {
+  START_LOADING,
   GET_PRODUCTS,
   GET_PRODUCT,
   ADD_PRODUCT,
@@ -16,11 +17,18 @@ const initialState = {
 
 export default function (state = initialState, action) {
   switch (action.type) {
+    case START_LOADING:
+      return {
+        ...state,
+        loading: true,
+      };
     case GET_PRODUCTS:
       return {
         ...state,
-        products: action.payload.sort(
-          (first, second) => +second.id - +first.id
+        products: action.payload.sort((first, second) =>
+          action.sortOrder === 'desc'
+            ? +second[action.sortBy] - +first[action.sortBy]
+            : +first[action.sortBy] - +second[action.sortBy]
         ),
         loading: false,
       };

@@ -7,6 +7,9 @@ import {
   MdDeleteForever,
   MdAddShoppingCart,
   MdDeleteSweep,
+  MdStar,
+  MdStarHalf,
+  MdStarOutline,
 } from 'react-icons/md';
 
 import { deleteProduct } from '../../actions/product';
@@ -20,48 +23,84 @@ const ProductItem = ({
   deleteFromCart,
   margin,
 }) => {
+  const filledStar = Math.floor(+rating);
+  const halfFilledStar = +rating === Math.floor(+rating) ? 0 : 1;
+
   return (
-    <div className={`post bg-white p-custom-2 my-${margin}`}>
-      <p className='post-text'>{title}</p>
-      <p className='post-text'>{description}</p>
-      <p className='post-text'>{price}</p>
-      <p className='post-text'>{rating}</p>
-      <Link to={`/products/${id}`} className='btn btn-dark mr'>
-        <MdEdit /> Edit Product
-      </Link>
-      <button
-        type='button'
-        className='btn btn-danger'
-        onClick={(e) => {
-          deleteProduct(id);
-          deleteFromCart(id);
-        }}
-      >
-        <MdDeleteForever /> Delete Product
-      </button>
-      {!loading ? (
-        cartItems.filter((product) => product.id === id).length ? (
-          <button
-            type='button'
-            className='btn btn-dark'
-            onClick={(e) => deleteFromCart(id)}
-          >
-            <MdDeleteSweep /> Delete from Cart
-          </button>
+    <div className='product bg-white p-2 my-2'>
+      <div className='product-info'>
+        <Link to={`/products/${id}`}>
+          <img src={image} />
+        </Link>
+
+        <div className='product-inner'>
+          <Link to={`/products/${id}`} className='product-text text-dark small'>
+            {title}
+          </Link>
+          <p className='product-text x-small mb'>{description}</p>
+          <p className='product-text large text-danger m-0'>
+            <span className='small'>₹</span> {price}
+          </p>
+          <p className='product-text mt-05'>
+            <p className='text-primary small m-icon-custom'>
+              {new Array(filledStar).fill(0).map((_) => (
+                <MdStar />
+              ))}
+              {halfFilledStar > 0 && <MdStarHalf />}
+              {new Array(5 - (filledStar + halfFilledStar)).fill(0).map((_) => (
+                <MdStarOutline />
+              ))}
+            </p>
+            {rating}
+          </p>
+        </div>
+      </div>
+
+      <div className='product-action'>
+        {!loading ? (
+          cartItems.filter((product) => product.id === id).length ? (
+            <button
+              type='button'
+              className='btn btn-dark'
+              onClick={(e) => deleteFromCart(id)}
+            >
+              <MdDeleteSweep /> Delete from Cart
+            </button>
+          ) : (
+            <button
+              type='button'
+              className='btn btn-primary'
+              onClick={(e) =>
+                addToCart({ id, title, description, price, rating, image })
+              }
+            >
+              <MdAddShoppingCart /> Add to Cart
+            </button>
+          )
         ) : (
-          <button
-            type='button'
-            className='btn btn-primary'
-            onClick={(e) =>
-              addToCart({ id, title, description, price, rating, image })
-            }
-          >
-            <MdAddShoppingCart /> Add to Cart
-          </button>
-        )
-      ) : (
-        ''
-      )}
+          ''
+        )}
+        <button
+          type='button'
+          className='btn btn-light'
+          // onClick={(e) => {
+          //   deleteProduct(id);
+          //   deleteFromCart(id);
+          // }}
+        >
+          <MdEdit /> Edit Product
+        </button>
+        <button
+          type='button'
+          className='btn btn-danger'
+          onClick={(e) => {
+            deleteProduct(id);
+            deleteFromCart(id);
+          }}
+        >
+          <MdDeleteForever /> Delete Product
+        </button>
+      </div>
     </div>
   );
 };

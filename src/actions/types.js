@@ -5,6 +5,7 @@ export const SET_ALERT = 'SET_ALERT';
 export const REMOVE_ALERT = 'REMOVE_ALERT';
 
 // product types
+export const START_LOADING = 'START_LOADING';
 export const GET_PRODUCTS = 'GET_PRODUCTS';
 export const GET_PRODUCT = 'GET_PRODUCT';
 export const PRODUCTS_ERROR = 'PRODUCTS_ERROR';
