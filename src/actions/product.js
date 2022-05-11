@@ -74,6 +74,10 @@ export const getProduct = (productId) => async (dispatch) => {
 // for adding a new product
 export const addProduct = (formData) => async (dispatch) => {
   try {
+    dispatch({
+      type: START_LOADING,
+    });
+
     // add the product
     const res = await axios.post(`${API_URL}/products`, formData, {
       headers: { 'Content-Type': 'application/json' },

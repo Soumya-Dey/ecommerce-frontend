@@ -237,26 +237,6 @@ img {
     cursor: default;
 }
 
-.badge {
-    font-size: 0.8rem;
-    padding: 0.2rem 0.6rem;
-    text-align: center;
-    margin: 0.3rem;
-    background: var(--light-color);
-    color: #333;
-    border-radius: 4px;
-    transition: all 0.2s ease-in;
-}
-
-/* .alert {
-    padding: 0.8rem 1.2rem;
-    margin: 1rem 0;
-    opacity: 0.9;
-    background: var(--light-color);
-    color: #333;
-    border-radius: 4px;
-    transition: all 0.2s ease;
-} */
 .alert {
     position: fixed;
     left: 50%;
@@ -379,28 +359,39 @@ img {
 }
 
 /* Forms */
-.form .form-group {
-    margin: 1.2rem 0;
+.form {
+    margin: 2rem 0 0 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
 }
 
-.form .form-text {
-    display: block;
-    margin-top: 0.3rem;
-    color: #888;
+.form div{
+    width: 100%;
+}
+
+.inner-form{
+    display: flex;
+    gap: 34px;
+}
+
+.form-action{
+    margin-top: 1.4rem;
 }
 
 .form input[type="text"],
-.form input[type="email"],
-.form input[type="password"],
-.form input[type="date"],
-.form select,
+.form input[type="number"],
 .form textarea {
     display: block;
     width: 100%;
-    padding: 0.4rem 0.8rem;
+    padding: 0.6rem 1rem;
     font-size: 1.2rem;
     border-radius: 4px;
     border: 1px solid #ccc;
+    resize: none;
+    margin-top: 0.3rem;
 }
 
 .form input[type="submit"],

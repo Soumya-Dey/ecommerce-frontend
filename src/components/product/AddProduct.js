@@ -1,8 +1,7 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { useNavigate, Link } from 'react-router-dom';
-import { MdKeyboardArrowLeft } from 'react-icons/md';
 
 import { addProduct } from '../../actions/product';
 
@@ -39,15 +38,10 @@ const AddProduct = ({ addProduct }) => {
   };
 
   return (
-    <Fragment>
-      <Link to='/' className='btn btn-light'>
-        <MdKeyboardArrowLeft /> Back
-      </Link>
-      <div className='product-form'>
-        <div className='bg-primary p-custom-3 say-div'>
-          <h3>Add a Product</h3>
-        </div>
-        <form className='form my-1' onSubmit={(e) => onSubmit(e)}>
+    <div>
+      <h1 className='medium text-dark text-up'>Add Product</h1>
+      <form className='form my-1' onSubmit={(e) => onSubmit(e)}>
+        <div>
           <label htmlFor='title'>Product Name</label>
           <input
             id='title'
@@ -58,49 +52,62 @@ const AddProduct = ({ addProduct }) => {
             placeholder='Product Name'
             required
           ></input>
+        </div>
 
+        <div>
           <label htmlFor='description'>Product Description</label>
           <textarea
             id='description'
             name='description'
             cols='30'
-            rows='5'
+            rows='4'
             value={description}
             onChange={(e) => onChange(e)}
             placeholder='Product description'
             required
           ></textarea>
+        </div>
 
-          <label htmlFor='price'>Product Price</label>
-          <input
-            id='price'
-            type='number'
-            name='price'
-            value={price}
-            onChange={(e) => onChange(e)}
-            placeholder='Product Price'
-            required
-          ></input>
+        <div className='inner-form'>
+          <div>
+            <label htmlFor='price'>Product Price</label>
+            <input
+              id='price'
+              type='number'
+              name='price'
+              value={price}
+              onChange={(e) => onChange(e)}
+              placeholder='Product Price'
+              required
+            ></input>
+          </div>
 
-          <label htmlFor='price'>Product Rating</label>
-          <input
-            id='rating'
-            type='number'
-            name='rating'
-            value={rating}
-            onChange={(e) => onChange(e)}
-            placeholder='Product Rating'
-            required
-          ></input>
+          <div>
+            <label htmlFor='price'>Product Rating</label>
+            <input
+              id='rating'
+              type='number'
+              name='rating'
+              value={rating}
+              onChange={(e) => onChange(e)}
+              placeholder='Product Rating'
+              required
+            ></input>
+          </div>
+        </div>
 
+        <div className='inner-form form-action'>
           <input
             type='submit'
-            className='btn btn-dark my-1'
+            className='btn btn-primary'
             value='Add Product'
           />
-        </form>
-      </div>
-    </Fragment>
+          <Link to='/' className='btn btn-light'>
+            Cancel
+          </Link>
+        </div>
+      </form>
+    </div>
   );
 };
 
