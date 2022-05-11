@@ -24,7 +24,7 @@ const AddProduct = ({ addProduct }) => {
     setFormData({
       ...formData,
       [event.target.name]:
-        event.target.name == 'price' || event.target.name == 'rating'
+        event.target.name === 'price' || event.target.name === 'rating'
           ? +event.target.value
           : event.target.value,
     });

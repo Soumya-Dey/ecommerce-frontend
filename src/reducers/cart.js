@@ -1,4 +1,9 @@
-import { ADD_TO_CART, DELETE_FROM_CART, CART_ERROR } from '../actions/types';
+import {
+  ADD_TO_CART,
+  DELETE_FROM_CART,
+  UPDATE_CART,
+  CART_ERROR,
+} from '../actions/types';
 
 const initialState = {
   products: localStorage.getItem('cart')
@@ -23,6 +28,19 @@ export default function (state = initialState, action) {
       products = state.products.filter(
         (product) => product.id !== action.payload
       );
+      localStorage.setItem('cart', JSON.stringify(products));
+      return {
+        ...state,
+        products,
+        loading: false,
+      };
+    case UPDATE_CART:
+      products = state.products.map((product) => {
+        if (product.id === action.payload.id)
+          product = { ...product, ...action.payload };
+
+        return product;
+      });
       localStorage.setItem('cart', JSON.stringify(products));
       return {
         ...state,

@@ -196,7 +196,7 @@
       "id": 25,
       "title": "Table Cloth 54x72 White",
       "description": "Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh. Quisque id justo sit amet sapien dignissim vestibulum.",
-      "price": 9954.22,
+      "price": 9974.22,
       "rating": 4.9,
       "image": "http://dummyimage.com/245x179.png/5fa2dd/ffffff"
     },
@@ -380,7 +380,7 @@
       "id": 48,
       "title": "The Pop Shoppe - Grape",
       "description": "Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
-      "price": 641.46,
+      "price": 1641.46,
       "rating": 3.8,
       "image": "http://dummyimage.com/117x142.png/5fa2dd/ffffff"
     },
@@ -388,16 +388,16 @@
       "id": 49,
       "title": "Soup - Campbellschix Stew",
       "description": "Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla.",
-      "price": 4742.84,
-      "rating": 3.5,
+      "price": 5000.5,
+      "rating": 4.5,
       "image": "http://dummyimage.com/162x137.png/dddddd/000000"
     },
     {
       "id": 50,
       "title": "Bar - Sweet And Salty Chocolate",
       "description": "Nam dui. Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius.",
-      "price": 3067.65,
-      "rating": 2,
+      "price": 3267.65,
+      "rating": 3.5,
       "image": "http://dummyimage.com/110x131.png/dddddd/000000"
     }
   ],

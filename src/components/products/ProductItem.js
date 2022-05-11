@@ -12,95 +12,201 @@ import {
   MdStarOutline,
 } from 'react-icons/md';
 
-import { deleteProduct } from '../../actions/product';
-import { addToCart, deleteFromCart } from '../../actions/cart';
+import { editProduct, deleteProduct } from '../../actions/product';
+import { addToCart, editCart, deleteFromCart } from '../../actions/cart';
 
 const ProductItem = ({
-  product: { id, title, description, price, rating, image },
+  product: {
+    id,
+    title: pTitle,
+    description: pDescription,
+    price: pPrice,
+    rating: pRating,
+    image,
+  },
   cart: { products: cartItems, loading },
+  editProduct,
   deleteProduct,
   addToCart,
+  editCart,
   deleteFromCart,
   margin,
 }) => {
+  const initialData = {
+    title: pTitle,
+    description: pDescription,
+    price: pPrice,
+    rating: pRating,
+  };
+
+  const [edit, setEdit] = useState(false);
+  const [formData, setFormData] = useState(initialData);
+  const { title, description, price, rating } = formData;
+
   const filledStar = Math.floor(+rating);
   const halfFilledStar = +rating === Math.floor(+rating) ? 0 : 1;
+
+  // for title -> {prevData, title: value}
+  const onChange = (event) =>
+    setFormData({
+      ...formData,
+      [event.target.name]:
+        event.target.name === 'price' || event.target.name === 'rating'
+          ? +event.target.value
+          : event.target.value,
+    });
 
   return (
     <div className='product bg-white p-2 my-2'>
       <div className='product-info'>
         <Link to={`/products/${id}`}>
-          <img src={image} />
+          <img src={image} alt={title} />
         </Link>
 
-        <div className='product-inner'>
-          <Link to={`/products/${id}`} className='product-text text-dark small'>
-            {title}
-          </Link>
-          <p className='product-text x-small mb'>{description}</p>
-          <p className='product-text large text-danger m-0'>
-            <span className='small'>₹</span> {price}
-          </p>
-          <p className='product-text mt-05'>
-            <p className='text-primary small m-icon-custom'>
-              {new Array(filledStar).fill(0).map((_) => (
-                <MdStar />
-              ))}
-              {halfFilledStar > 0 && <MdStarHalf />}
-              {new Array(5 - (filledStar + halfFilledStar)).fill(0).map((_) => (
-                <MdStarOutline />
-              ))}
+        {edit ? (
+          <div className='product-inner'>
+            <input
+              id='title'
+              type='text'
+              name='title'
+              value={title}
+              onChange={(e) => onChange(e)}
+              placeholder='Product Name'
+              required
+            ></input>
+            <textarea
+              id='description'
+              name='description'
+              cols='30'
+              rows='5'
+              value={description}
+              onChange={(e) => onChange(e)}
+              placeholder='Product description'
+              required
+            ></textarea>
+            <div className='input-inner'>
+              <p className='x-small'>Price:</p>
+              <input
+                id='price'
+                type='number'
+                name='price'
+                value={price}
+                onChange={(e) => onChange(e)}
+                placeholder='Product Price'
+                required
+              ></input>
+              <p className='x-small'>Rating [0-5]:</p>
+              <input
+                id='rating'
+                type='number'
+                name='rating'
+                value={rating}
+                onChange={(e) => onChange(e)}
+                placeholder='Product Rating'
+                required
+              ></input>
+            </div>
+          </div>
+        ) : (
+          <div className='product-inner'>
+            <Link
+              to={`/products/${id}`}
+              className='product-text text-dark small'
+            >
+              {title}
+            </Link>
+            <p className='product-text x-small mb'>{description}</p>
+            <p className='product-text large text-danger m-0'>
+              <span className='small'>₹</span> {price}
             </p>
-            {rating}
-          </p>
-        </div>
+            <p className='product-text mt-05'>
+              <p className='text-primary small m-icon-custom'>
+                {new Array(filledStar).fill(0).map((_) => (
+                  <MdStar />
+                ))}
+                {halfFilledStar > 0 && <MdStarHalf />}
+                {new Array(5 - (filledStar + halfFilledStar))
+                  .fill(0)
+                  .map((_) => (
+                    <MdStarOutline />
+                  ))}
+              </p>
+              {rating}
+            </p>
+          </div>
+        )}
       </div>
 
-      <div className='product-action'>
-        {!loading ? (
-          cartItems.filter((product) => product.id === id).length ? (
-            <button
-              type='button'
-              className='btn btn-dark'
-              onClick={(e) => deleteFromCart(id)}
-            >
-              <MdDeleteSweep /> Delete from Cart
-            </button>
+      {edit ? (
+        <div className='product-action'>
+          <button
+            type='button'
+            className='btn btn-primary'
+            onClick={(e) => {
+              editProduct(id, formData);
+              editCart({ id, ...formData, image });
+              setEdit(false);
+            }}
+          >
+            Save
+          </button>
+          <button
+            type='button'
+            className='btn btn-light'
+            onClick={(e) => {
+              setEdit(false);
+              setFormData(initialData);
+            }}
+          >
+            Cancel
+          </button>
+        </div>
+      ) : (
+        <div className='product-action'>
+          {!loading ? (
+            cartItems.filter((product) => product.id === id).length ? (
+              <button
+                type='button'
+                className='btn btn-dark'
+                onClick={(e) => deleteFromCart(id)}
+              >
+                <MdDeleteSweep /> Delete from Cart
+              </button>
+            ) : (
+              <button
+                type='button'
+                className='btn btn-primary'
+                onClick={(e) =>
+                  addToCart({ id, title, description, price, rating, image })
+                }
+              >
+                <MdAddShoppingCart /> Add to Cart
+              </button>
+            )
           ) : (
-            <button
-              type='button'
-              className='btn btn-primary'
-              onClick={(e) =>
-                addToCart({ id, title, description, price, rating, image })
-              }
-            >
-              <MdAddShoppingCart /> Add to Cart
-            </button>
-          )
-        ) : (
-          ''
-        )}
-        <button
-          type='button'
-          className='btn btn-light'
-          // onClick={(e) => {
-          //   deleteProduct(id);
-          //   deleteFromCart(id);
-          // }}
-        >
-          <MdEdit /> Edit Product
-        </button>
-        <button
-          type='button'
-          className='btn btn-danger'
-          onClick={(e) => {
-            deleteProduct(id);
-            deleteFromCart(id);
-          }}
-        >
-          <MdDeleteForever /> Delete Product
-        </button>
-      </div>
+            ''
+          )}
+          <button
+            type='button'
+            className='btn btn-light'
+            onClick={(e) => {
+              setEdit(true);
+            }}
+          >
+            <MdEdit /> Edit Product
+          </button>
+          <button
+            type='button'
+            className='btn btn-danger'
+            onClick={(e) => {
+              deleteProduct(id);
+              deleteFromCart(id);
+            }}
+          >
+            <MdDeleteForever /> Delete Product
+          </button>
+        </div>
+      )}
     </div>
   );
 };
@@ -108,8 +214,10 @@ const ProductItem = ({
 ProductItem.propTypes = {
   product: PropTypes.object.isRequired,
   cart: PropTypes.object.isRequired,
+  editProduct: PropTypes.func.isRequired,
   deleteProduct: PropTypes.func.isRequired,
   addToCart: PropTypes.func.isRequired,
+  editCart: PropTypes.func.isRequired,
   deleteFromCart: PropTypes.func.isRequired,
   margin: PropTypes.number,
 };
@@ -119,7 +227,9 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps, {
+  editProduct,
   deleteProduct,
   addToCart,
+  editCart,
   deleteFromCart,
 })(ProductItem);

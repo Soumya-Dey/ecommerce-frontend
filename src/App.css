@@ -461,7 +461,7 @@ button {
 .product-info{
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
     gap: 44px;
 }
 
@@ -480,11 +480,30 @@ button {
     gap: 24px;
 }
 
+.product-inner input,
+.product-inner textarea{
+    min-width: 600px;
+    padding: 0.6rem 1rem;
+    resize: none;
+}
+
+.input-inner{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.input-inner input{
+    min-width: 200px;
+}
+
 .product img {
     width: 200px;
     height: 200px;
     border: 1px solid #ccc;
     border-radius: 6px;
+    transform: translateY(5px);
 }
 
 a.product-text:hover{

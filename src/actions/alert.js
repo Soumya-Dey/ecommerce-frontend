@@ -4,7 +4,7 @@ import { SET_ALERT, REMOVE_ALERT } from './types';
 
 // func for dispatching alert msg actions
 export const setAlert =
-  (msg, alertType, timeout = 5000) =>
+  (msg, alertType, timeout = 3000) =>
   (dispatch) => {
     const id = nanoid();
 

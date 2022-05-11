@@ -46,7 +46,6 @@ export default function (state = initialState, action) {
         loading: false,
       };
     case UPDATE_PRODUCT:
-      console.log(action.payload);
       return {
         ...state,
         product: action.payload,
