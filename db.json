@@ -394,10 +394,10 @@
     },
     {
       "id": 50,
-      "title": "Bar - Sweet And Salty Chocolate",
-      "description": "Nam dui. Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius.",
-      "price": 3267.65,
-      "rating": 3.5,
+      "title": "Biscuit - Sweet And Salty Chocolate",
+      "description": "Nam dui. Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis.",
+      "price": 3267.77,
+      "rating": 3.8,
       "image": "http://dummyimage.com/110x131.png/dddddd/000000"
     }
   ],

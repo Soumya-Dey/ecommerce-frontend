@@ -1,4 +1,4 @@
-import React, { useEffect, useState, Fragment } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -30,7 +30,6 @@ const ProductItem = ({
   addToCart,
   editCart,
   deleteFromCart,
-  margin,
 }) => {
   const initialData = {
     title: pTitle,
@@ -117,22 +116,26 @@ const ProductItem = ({
             >
               {title}
             </Link>
-            <p className='product-text x-small mb'>{description}</p>
+            <p className='product-text x-small mb'>
+              {description.length > 168
+                ? `${description.substring(0, 168)}...`
+                : description}
+            </p>
             <p className='product-text large text-danger m-0'>
               <span className='small'>₹</span> {price}
             </p>
             <p className='product-text mt-05'>
-              <p className='text-primary small m-icon-custom'>
-                {new Array(filledStar).fill(0).map((_) => (
-                  <MdStar />
+              <span className='text-primary small m-icon-custom'>
+                {new Array(filledStar).fill(0).map((_, i) => (
+                  <MdStar key={i} />
                 ))}
                 {halfFilledStar > 0 && <MdStarHalf />}
                 {new Array(5 - (filledStar + halfFilledStar))
                   .fill(0)
-                  .map((_) => (
-                    <MdStarOutline />
+                  .map((_, i) => (
+                    <MdStarOutline key={i} />
                   ))}
-              </p>
+              </span>
               {rating}
             </p>
           </div>
@@ -202,7 +205,6 @@ const ProductItem = ({
             className='btn btn-danger'
             onClick={(e) => {
               deleteProduct(id);
-              deleteFromCart(id);
             }}
           >
             <MdDeleteForever /> Delete Product

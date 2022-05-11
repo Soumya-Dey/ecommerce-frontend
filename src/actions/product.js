@@ -2,6 +2,7 @@ import axios from 'axios';
 
 import { API_URL } from '../env';
 import { setAlert } from './alert';
+import { deleteFromCart } from './cart';
 import {
   START_LOADING,
   GET_PRODUCTS,
@@ -149,6 +150,7 @@ export const deleteProduct = (productId) => async (dispatch) => {
       });
 
       // show an alert
+      dispatch(deleteFromCart(productId));
       dispatch(setAlert('Product removed successfully', 'dark'));
     } catch (error) {
       // send the error data to reducer

@@ -25,7 +25,11 @@ const CartItem = ({
           >
             {title}
           </Link>
-          <p className='product-text x-small mb'>{description}</p>
+          <p className='product-text x-small mb'>
+            {description.length > 168
+              ? `${description.substring(0, 168)}...`
+              : description}
+          </p>
           <p className='product-text medium text-dark m-0'>
             <span className='small'>₹</span> {price}
           </p>

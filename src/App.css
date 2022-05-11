@@ -49,16 +49,6 @@ img {
     margin-bottom: 3rem;
 }
 
-.center {
-    height: 60vh;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
 /* Text Styles*/
 .x-large {
     font-size: 3.4rem;
@@ -86,20 +76,6 @@ img {
 .x-small {
     font-size: 0.9rem;
     font-weight: 600;
-}
-
-.x-small-light {
-    font-size: 0.9rem;
-}
-
-.lead {
-    font-size: 1.2rem;
-    margin-bottom: 2.4rem;
-    opacity: 0.9;
-}
-
-.text-center {
-    text-align: center;
 }
 
 .text-primary {
@@ -130,27 +106,6 @@ img {
 }
 .p-3 {
     padding: 3rem;
-}
-.py {
-    padding: 0.5rem 0;
-}
-.py-1 {
-    padding: 1rem 0;
-}
-.py-2 {
-    padding: 2rem 0;
-}
-.py-3 {
-    padding: 3rem 0;
-}
-.p-custom {
-    padding: 1.5rem 2rem;
-}
-.p-custom-2 {
-    padding: 2rem 4rem;
-}
-.p-custom-3 {
-    padding: 0.5rem 1.5rem;
 }
 /* Margin */
 .m {
@@ -188,6 +143,9 @@ img {
 }
 .mt {
     margin-top: 1.5rem;
+}
+.mt-2{
+    margin-top: 2rem;
 }
 .mt-05 {
     margin-top: 0.5rem;
@@ -501,6 +459,18 @@ button {
     height: 144px;
 }
 
+.product-details{
+    align-items: flex-start;
+}
+/* .product-details .product-action{
+    height: max-content;
+    align-self: flex-start;
+} */
+.product-details img{
+    width: 320px;
+    height: 320px;
+}
+
 a.product-text:hover{
     text-decoration: underline;
     color: #c45500;
@@ -512,4 +482,13 @@ a.product-text:hover{
     display: flex;
     align-items: center;
     gap: 4px;
+}
+
+a.back{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+a.back:hover{
+    text-decoration: underline;
 }
