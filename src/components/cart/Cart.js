@@ -12,10 +12,17 @@ const Cart = ({ cart: { products, loading } }) => {
     <Spinner />
   ) : (
     <Fragment>
-      <Link to='/' className='btn btn-light'>
-        <MdKeyboardArrowLeft /> Back
-      </Link>
-      <h1 className='large text-primary'>Your Cart</h1>
+      <div className='product'>
+        <h1 className='medium text-dark text-up'>Your Cart</h1>
+        <button type='button' className='btn btn-light btn-rounded' disabled>
+          Subtotal ({products.length} {products.length > 1 ? 'items' : 'item'})
+          : ₹{' '}
+          {products
+            .reduce((previous, current) => previous + +current.price, 0)
+            .toFixed(2)}
+        </button>
+      </div>
+
       <div className='products'>
         {products.map((product) => (
           <CartItem key={product.id} product={product} margin={2} />

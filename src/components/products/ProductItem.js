@@ -59,7 +59,7 @@ const ProductItem = ({
   return (
     <div className='product bg-white p-2 my-2'>
       <div className='product-info'>
-        <Link to={`/products/${id}`}>
+        <Link to={`/products/${id}`} target='_blank' rel='noopener noreferrer'>
           <img src={image} alt={title} />
         </Link>
 
@@ -112,6 +112,8 @@ const ProductItem = ({
             <Link
               to={`/products/${id}`}
               className='product-text text-dark small'
+              target='_blank'
+              rel='noopener noreferrer'
             >
               {title}
             </Link>

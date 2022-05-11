@@ -234,7 +234,7 @@ img {
 
 .btn:disabled:hover {
     opacity: 1;
-    cursor: not-allowed;
+    cursor: default;
 }
 
 .badge {
@@ -504,6 +504,10 @@ button {
     border: 1px solid #ccc;
     border-radius: 6px;
     transform: translateY(5px);
+}
+.product img.cart-img{
+    width: 144px;
+    height: 144px;
 }
 
 a.product-text:hover{
