@@ -14,7 +14,7 @@ npm i
 json-server --watch db.json --port 5000
 ```
 
-Once the server is started your server API base URL will be `http://localhost:5000` .
+Once the server is started your server API base URL will be [http://localhost:5000](http://localhost:5000) .
 
 3. Now start the React App.
 
@@ -22,7 +22,7 @@ Once the server is started your server API base URL will be `http://localhost:50
 npm run start
 ```
 
-Once the app is started, visit `http://localhost:3000` in your browser to view the React App.
+Once the app is started, Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 <br>
 <hr>
