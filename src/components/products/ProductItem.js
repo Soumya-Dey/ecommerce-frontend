@@ -49,10 +49,7 @@ const ProductItem = ({
   const onChange = (event) =>
     setFormData({
       ...formData,
-      [event.target.name]:
-        event.target.name === 'price' || event.target.name === 'rating'
-          ? +event.target.value
-          : event.target.value,
+      [event.target.name]: event.target.value,
     });
 
   return (
@@ -148,8 +145,20 @@ const ProductItem = ({
             type='button'
             className='btn btn-primary'
             onClick={(e) => {
-              editProduct(id, formData);
-              editCart({ id, ...formData, image });
+              editProduct(id, {
+                title: formData.title,
+                description: formData.description,
+                price: +formData.price,
+                rating: +formData.rating,
+              });
+              editCart({
+                id,
+                title: formData.title,
+                description: formData.description,
+                price: +formData.price,
+                rating: +formData.rating,
+                image,
+              });
               setEdit(false);
             }}
           >
@@ -182,7 +191,14 @@ const ProductItem = ({
                 type='button'
                 className='btn btn-primary'
                 onClick={(e) =>
-                  addToCart({ id, title, description, price, rating, image })
+                  addToCart({
+                    id,
+                    title,
+                    description,
+                    price: +price,
+                    rating: +rating,
+                    image,
+                  })
                 }
               >
                 <MdAddShoppingCart /> Add to Cart

@@ -461,6 +461,7 @@ button {
 
 .product-details{
     align-items: flex-start;
+    justify-content: flex-start;
 }
 /* .product-details .product-action{
     height: max-content;

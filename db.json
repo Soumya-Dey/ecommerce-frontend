@@ -381,7 +381,7 @@
       "title": "The Pop Shoppe - Grape",
       "description": "Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
       "price": 1641.46,
-      "rating": 3.8,
+      "rating": 3,
       "image": "http://dummyimage.com/117x142.png/5fa2dd/ffffff"
     },
     {
@@ -396,7 +396,7 @@
       "id": 50,
       "title": "Biscuit - Sweet And Salty Chocolate",
       "description": "Nam dui. Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis.",
-      "price": 3267.77,
+      "price": 3267.74,
       "rating": 3.8,
       "image": "http://dummyimage.com/110x131.png/dddddd/000000"
     }

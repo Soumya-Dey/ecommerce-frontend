@@ -22,16 +22,18 @@ const AddProduct = ({ addProduct }) => {
   const onChange = (event) =>
     setFormData({
       ...formData,
-      [event.target.name]:
-        event.target.name === 'price' || event.target.name === 'rating'
-          ? +event.target.value
-          : event.target.value,
+      [event.target.name]: event.target.value,
     });
 
   const onSubmit = (event) => {
     event.preventDefault();
 
-    addProduct(formData);
+    addProduct({
+      title: formData.title,
+      description: formData.description,
+      price: +formData.price,
+      rating: +formData.rating,
+    });
     setFormData(initialData);
 
     navigate('/');
@@ -39,7 +41,7 @@ const AddProduct = ({ addProduct }) => {
 
   return (
     <div>
-      <h1 className='medium text-dark text-up'>Add Product</h1>
+      <h1 className='medium text-dark text-up mt-05'>Add Product</h1>
       <form className='form my-1' onSubmit={(e) => onSubmit(e)}>
         <div>
           <label htmlFor='title'>Product Name</label>
@@ -89,6 +91,7 @@ const AddProduct = ({ addProduct }) => {
               type='number'
               name='rating'
               value={rating}
+              max={5}
               onChange={(e) => onChange(e)}
               placeholder='Product Rating'
               required
