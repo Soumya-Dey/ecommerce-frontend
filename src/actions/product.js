@@ -51,6 +51,7 @@ export const getProduct = (productId) => async (dispatch) => {
       type: START_LOADING,
     });
 
+    // productId = id of the product
     // get the product by id
     const res = await axios.get(`${API_URL}/products/${productId}`);
 
@@ -73,6 +74,11 @@ export const getProduct = (productId) => async (dispatch) => {
 };
 
 // for adding a new product
+/* 
+  formdata = {
+    id, title, description, price, image 
+  }
+*/
 export const addProduct = (formData) => async (dispatch) => {
   try {
     dispatch({
@@ -105,6 +111,12 @@ export const addProduct = (formData) => async (dispatch) => {
 };
 
 // for editing a new product
+// productId = id of the product
+/* 
+  formdata = {
+    id, title, description, price, image 
+  }
+*/
 export const editProduct = (productId, formData) => async (dispatch) => {
   try {
     // add the product
@@ -137,6 +149,7 @@ export const editProduct = (productId, formData) => async (dispatch) => {
 };
 
 // for removing a product
+// productId = id of the product
 export const deleteProduct = (productId) => async (dispatch) => {
   if (window.confirm('Are you sure you want to remove this product?')) {
     try {

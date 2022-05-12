@@ -1,12 +1,11 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { MdKeyboardArrowLeft } from 'react-icons/md';
 
 import Spinner from '../layouts/Spinner';
 import CartItem from './CartItem';
 
+// Cart screen with list of cart items
 const Cart = ({ cart: { products, loading } }) => {
   return loading ? (
     <Spinner />
@@ -25,7 +24,7 @@ const Cart = ({ cart: { products, loading } }) => {
 
       <div className='products'>
         {products.map((product) => (
-          <CartItem key={product.id} product={product} margin={2} />
+          <CartItem key={product.id} product={product} />
         ))}
       </div>
     </Fragment>

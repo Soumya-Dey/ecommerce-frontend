@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import loading from './loading.gif';
 
+// loading spinner component
 const Spinner = () => {
   return (
     <Fragment>

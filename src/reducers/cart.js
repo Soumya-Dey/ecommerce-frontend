@@ -5,6 +5,7 @@ import {
   CART_ERROR,
 } from '../actions/types';
 
+// loading the initial data from local storage i.e. persisting old cart data
 const initialState = {
   products: localStorage.getItem('cart')
     ? JSON.parse(localStorage.getItem('cart'))
@@ -13,6 +14,8 @@ const initialState = {
   error: {},
 };
 
+// updating the local storage at the same time with redux store data
+// so that cart data can be persisted even after browser refresh
 let products;
 export default function (state = initialState, action) {
   switch (action.type) {

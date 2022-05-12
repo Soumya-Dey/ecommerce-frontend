@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 
 import { MdShoppingCart, MdLibraryAdd } from 'react-icons/md';
 
+// navbar component
 const Navbar = ({ cart: { products: cartItems, loading } }) => {
   return (
     <nav className='navbar bg-dark'>

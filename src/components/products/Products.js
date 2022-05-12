@@ -7,9 +7,12 @@ import Spinner from '../layouts/Spinner';
 import ProductItem from './ProductItem';
 import { getAllProducts } from '../../actions/product';
 
+// product list screen
 const Products = ({ getAllProducts, product: { products, loading } }) => {
+  // variable to indicate on which property to sort the products
   const [filter, setFilter] = useState('id');
 
+  // fetch the product list on page load
   useEffect(() => {
     getAllProducts(filter);
   }, [getAllProducts, filter]);
@@ -45,7 +48,7 @@ const Products = ({ getAllProducts, product: { products, loading } }) => {
       ) : (
         <div className='products'>
           {products.map((product) => (
-            <ProductItem key={product.id} product={product} margin={2} />
+            <ProductItem key={product.id} product={product} />
           ))}
         </div>
       )}

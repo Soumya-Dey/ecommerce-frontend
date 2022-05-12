@@ -8,6 +8,8 @@ import {
   PRODUCTS_ERROR,
 } from '../actions/types';
 
+// product[object]: currently selected product
+// products[array]: list of all the products
 const initialState = {
   product: null,
   products: [],

@@ -38,11 +38,15 @@ const ProductItem = ({
     rating: pRating,
   };
 
-  const [edit, setEdit] = useState(false);
+  const [edit, setEdit] = useState(false); // flag to indicate whether product is being edited or not
   const [formData, setFormData] = useState(initialData);
   const { title, description, price, rating } = formData;
 
+  // if rating = 3.5
+  // then we need 3 fully filled star, 1 half filled star, 1 fully unfilled star
   const filledStar = Math.floor(+rating);
+  // if the rating number has decimal point
+  // then half filled star is needed, otherwise not
   const halfFilledStar = +rating === Math.floor(+rating) ? 0 : 1;
 
   // for title -> {prevData, title: value}
@@ -59,6 +63,7 @@ const ProductItem = ({
           <img src={image} alt={title} />
         </Link>
 
+        {/* if edit = true, then show input fields, else show the product data */}
         {edit ? (
           <div className='product-inner'>
             <input
@@ -139,6 +144,7 @@ const ProductItem = ({
         )}
       </div>
 
+      {/* if edit = true, then show save and cancel buttons, else show the normal action buttons */}
       {edit ? (
         <div className='product-action'>
           <button

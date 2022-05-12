@@ -12,6 +12,7 @@ const initialData = {
   rating: '',
 };
 
+// add product form
 const AddProduct = ({ addProduct }) => {
   const navigate = useNavigate();
 
@@ -26,16 +27,20 @@ const AddProduct = ({ addProduct }) => {
     });
 
   const onSubmit = (event) => {
+    // preventing default page reload
     event.preventDefault();
 
+    // calling the addProduct action
     addProduct({
       title: formData.title,
       description: formData.description,
       price: +formData.price,
       rating: +formData.rating,
     });
+    // clearing the form
     setFormData(initialData);
 
+    // redirecting to products page
     navigate('/');
   };
 

@@ -12,24 +12,29 @@ import {
 } from 'react-icons/md';
 
 import Spinner from '../layouts/Spinner';
-import { getProduct, deleteProduct } from '../../actions/product';
+import { getProduct } from '../../actions/product';
 import { addToCart, deleteFromCart } from '../../actions/cart';
 
+// product details screen
 const Product = ({
   getProduct,
-  deleteProduct,
   addToCart,
   deleteFromCart,
   product: { product, loading },
   cart: { products: cartItems, loading: cartLoading },
 }) => {
   const { productId } = useParams();
-  console.log(productId);
+
+  // feting the product by id on page load
   useEffect(() => {
     getProduct(productId);
   }, [getProduct, productId]);
 
+  // if rating = 3.5
+  // then we need 3 fully filled star, 1 half filled star, 1 fully unfilled star
   const filledStar = product ? Math.floor(+product.rating) : 0;
+  // if the rating number has decimal point
+  // then half filled star is needed, otherwise not
   const halfFilledStar = product
     ? +product.rating === Math.floor(+product.rating)
       ? 0
@@ -101,7 +106,6 @@ const Product = ({
 
 Product.propTypes = {
   getProduct: PropTypes.func.isRequired,
-  deleteProduct: PropTypes.func.isRequired,
   addToCart: PropTypes.func.isRequired,
   deleteFromCart: PropTypes.func.isRequired,
   product: PropTypes.object.isRequired,
@@ -114,7 +118,6 @@ const mapStateToProps = (state) => ({
 
 export default connect(mapStateToProps, {
   getProduct,
-  deleteProduct,
   addToCart,
   deleteFromCart,
 })(Product);

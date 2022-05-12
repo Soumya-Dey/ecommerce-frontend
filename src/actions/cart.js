@@ -7,9 +7,13 @@ import {
 } from './types';
 
 // for adding a new product to cart
+/* 
+  formdata = {
+    id, title, description, price, image 
+  }
+*/
 export const addToCart = (formData) => async (dispatch) => {
   try {
-    console.log(formData);
     // send the new product to reducer
     dispatch({
       type: ADD_TO_CART,
@@ -30,7 +34,13 @@ export const addToCart = (formData) => async (dispatch) => {
   }
 };
 
-// for adding a new product to cart
+// for editing a product in cart
+// this func will be called if a product that is in the cart is edited from products screen
+/* 
+  formdata = {
+    id, title, description, price, image 
+  }
+*/
 export const editCart = (formData) => async (dispatch) => {
   try {
     // send the new product to reducer
@@ -51,6 +61,7 @@ export const editCart = (formData) => async (dispatch) => {
 };
 
 // for deleting a product from cart
+// productId = id of the product
 export const deleteFromCart = (productId) => async (dispatch) => {
   try {
     // send the new product to reducer

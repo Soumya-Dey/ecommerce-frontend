@@ -6,6 +6,7 @@ import { MdDeleteSweep, MdOutlineOpenInNew } from 'react-icons/md';
 
 import { deleteFromCart } from '../../actions/cart';
 
+// single cart item
 const CartItem = ({
   product: { id, title, description, price, image },
   deleteFromCart,

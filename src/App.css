@@ -49,6 +49,15 @@ img {
     margin-bottom: 3rem;
 }
 
+.center{
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
 /* Text Styles*/
 .x-large {
     font-size: 3.4rem;

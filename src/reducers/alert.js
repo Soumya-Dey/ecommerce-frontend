@@ -1,5 +1,12 @@
 import { SET_ALERT, REMOVE_ALERT } from '../actions/types';
 
+/*
+alert = {
+  id, msg, alertType
+}
+*/
+// alertType possible values = success || danger || dark
+// array of the alerts
 const initialState = [];
 
 export default function (state = initialState, action) {

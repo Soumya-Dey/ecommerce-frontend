@@ -116,7 +116,7 @@
       "id": 15,
       "title": "Turkey - Breast, Smoked",
       "description": "In est risus, auctor sed, tristique in, tempus sit amet, sem.",
-      "price": 9202.9,
+      "price": 9802.9,
       "rating": 4.1,
       "image": "http://dummyimage.com/168x178.png/dddddd/000000"
     },
@@ -196,8 +196,8 @@
       "id": 25,
       "title": "Table Cloth 54x72 White",
       "description": "Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh. Quisque id justo sit amet sapien dignissim vestibulum.",
-      "price": 9974.22,
-      "rating": 4.9,
+      "price": 12974.22,
+      "rating": 4.2,
       "image": "http://dummyimage.com/245x179.png/5fa2dd/ffffff"
     },
     {
@@ -394,10 +394,10 @@
     },
     {
       "id": 50,
-      "title": "Biscuit - Sweet And Salty Chocolate",
+      "title": "Bar - Sweet And Salty Chocolate",
       "description": "Nam dui. Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis.",
-      "price": 3267.74,
-      "rating": 3.8,
+      "price": 3267.33,
+      "rating": 3.1,
       "image": "http://dummyimage.com/110x131.png/dddddd/000000"
     }
   ],
