@@ -19,7 +19,7 @@ export const setAlert =
       },
     });
 
-    // remove the alert after 5s
+    // remove the alert after 3s
     setTimeout(() => {
       dispatch({
         type: REMOVE_ALERT,

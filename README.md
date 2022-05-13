@@ -6,6 +6,7 @@ To start the app follow these steps:
 
 ```bash
 npm i
+npm install -g json-server
 ```
 
 2. Start the json server API with database.
